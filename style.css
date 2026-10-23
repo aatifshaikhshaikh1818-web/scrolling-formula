@@ -1,0 +1,205 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #03030a;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  height: 80px;
+  padding: 0 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 5;
+}
+
+.logo {
+  font-size: 25px;
+  font-weight: 900;
+  color: white;
+  text-decoration: none;
+  letter-spacing: 4px;
+}
+
+.logo span {
+  color: #b26cff;
+}
+
+.nav-link {
+  color: #ddd;
+  text-decoration: none;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+.hero {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 130px 10%;
+  isolation: isolate;
+  background:
+    radial-gradient(ellipse at 72% 45%,
+      #281047 0%, #0c081b 28%,
+      #03030a 65%);
+}
+
+.stars {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: .65;
+  background-image:
+    radial-gradient(white 1px, transparent 1px),
+    radial-gradient(#a78bfa 1px, transparent 1px);
+  background-size: 73px 73px, 113px 113px;
+  background-position: 0 0, 35px 45px;
+  animation: drift 35s linear infinite;
+}
+
+.black-hole {
+  position: absolute;
+  width: min(55vw, 570px);
+  aspect-ratio: 1;
+  right: 4%;
+  top: 50%;
+  transform: translateY(-50%);
+  display: grid;
+  place-items: center;
+  z-index: -1;
+}
+
+.ring {
+  position: absolute;
+  width: 100%;
+  height: 38%;
+  border-radius: 50%;
+  border: 10px solid transparent;
+  transform: rotate(-25deg);
+}
+
+.ring-one {
+  border-top-color: #ffb45e;
+  border-bottom-color: #8b5cf6;
+  filter: drop-shadow(0 0 12px #a855f7)
+          drop-shadow(0 0 30px #7c3aed);
+  animation: spin 8s linear infinite;
+}
+
+.ring-two {
+  width: 82%;
+  height: 28%;
+  border-top-color: #f3b8ff;
+  border-bottom-color: #6c4bff;
+  filter: drop-shadow(0 0 9px #a855f7);
+  animation: spin 5s linear infinite reverse;
+}
+
+.core {
+  width: 39%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #010105;
+  box-shadow: 0 0 30px #a855f7,
+              0 0 90px #7c3aed;
+}
+
+.hero-content {
+  max-width: 600px;
+  animation: appear 1.2s ease both;
+}
+
+.eyebrow {
+  color: #c4a1ff;
+  font-size: 11px;
+  letter-spacing: 5px;
+  margin-bottom: 25px;
+}
+
+h1 {
+  font-size: clamp(48px, 8vw, 100px);
+  line-height: .95;
+  letter-spacing: -4px;
+  font-weight: 900;
+}
+
+h1 span {
+  color: transparent;
+  -webkit-text-stroke: 1px #c4a1ff;
+}
+
+.description {
+  color: #aaa5bd;
+  line-height: 1.8;
+  max-width: 360px;
+  margin: 25px 0 30px;
+}
+
+button {
+  padding: 16px 23px;
+  background: #a855f7;
+  color: white;
+  border: 1px solid #c4a1ff;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: .3s;
+}
+
+button:hover {
+  background: #7c3aed;
+  box-shadow: 0 0 25px #8b5cf6;
+  transform: translateY(-3px);
+}
+
+.coordinates, .scroll-note {
+  position: absolute;
+  bottom: 25px;
+  color: #77718b;
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+.coordinates { left: 8%; }
+.scroll-note { right: 8%; }
+
+@keyframes spin {
+  to { transform: rotate(335deg); }
+}
+
+@keyframes drift {
+  to { background-position: 200px 200px, 235px 245px; }
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 650px) {
+  .hero { padding: 120px 7%; }
+  .black-hole {
+    width: 90vw;
+    right: -28%;
+    opacity: .55;
+  }
+  h1 { letter-spacing: -2px; }
+  .description { max-width: 290px; }
+  .coordinates { left: 7%; }
+  .scroll-note { right: 7%; }
+}
